@@ -11,11 +11,12 @@ import { ColorComponent } from './components/color/color.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { FirstPageComponent } from './components/first-page/first-page.component';
 import {LoginComponent} from './components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CarFilterComponent } from './components/car/carfilter/car-filter/car-filter.component';
 import { CarDetailComponent } from './components/car/cardetail/car-detail/car-detail.component';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -38,6 +39,7 @@ import { RegisterComponent } from './components/register/register.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
@@ -45,7 +47,12 @@ import { RegisterComponent } from './components/register/register.component';
    
 
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true}
+  ],
   bootstrap: [AppComponent]
+ 
 })
 export class AppModule { }

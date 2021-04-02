@@ -2,7 +2,7 @@
 <body class="text-center">
     
     <main class="form-signin">
-      <form>
+      <form [formGroup]="loginForm">
         <img class="mb-4" src="..\assets\images\logo1.jpg.png" alt="" width="120" height="90">
         <h1 class="h3 mb-3 fw-normal">Please Login</h1>
     
@@ -20,12 +20,10 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-danger" type="submit">Login</button>
+        <button  (click)="login()" class="w-100 btn btn-lg btn-danger" >Login</button>
         <p class="mt-5 mb-3 text-muted">&copy; IYD 2019-2021</p>
       </form>
     </main>
     
-    
-        
-      </body>
+</body>
   

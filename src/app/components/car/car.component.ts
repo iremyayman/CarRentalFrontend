@@ -41,6 +41,9 @@ export class CarComponent implements OnInit {
       this.dataloaded=true;
     })
   }
+  getCarsByColor(colorId:number){
+    
+  }
   
 
 }

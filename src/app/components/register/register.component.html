@@ -1,24 +1,24 @@
 <body class="text-center">
     
     <main class="form-signin">
-      <form>
+      <form [formGroup]="registerForm">
         <img class="mb-4" src="..\assets\images\logo1.jpg.png" alt="" width="120" height="90">
         <h1 class="h3 mb-3 fw-normal">Please Register</h1>
     
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="firstname" class="form-control" id="floatingInput" placeholder="Firstname">
+          <input formControlName="firstName" type="firstname" class="form-control" id="floatingInput" placeholder="Firstname">
           <label for="floatingInput">Firstname</label>
         </div>
         <div class="form-floating">
-            <input type="lastname" class="form-control" id="floatingInput" placeholder="Lastname">
+            <input formControlName="lastName" type="lastname" class="form-control" id="floatingInput" placeholder="Lastname">
             <label for="floatingInput">Lastname</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input formControlName="password"type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
     
@@ -27,7 +27,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-danger" type="submit">Register</button>
+        <button (click)="register()" class="w-100 btn btn-lg btn-danger" type="submit">Register</button>
         <p class="mt-5 mb-3 text-muted">&copy; IYD 2019-2021</p>
       </form>
     </main>

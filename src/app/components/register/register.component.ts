@@ -37,6 +37,7 @@ registerForm:FormGroup;
 
       this.authService.register(registerModel).subscribe(response=>{
         this.toastrService.info(response.message)
+        this.router.navigate(['home'])
         localStorage.setItem("token",response.data.token)
        
       },responseError=>{

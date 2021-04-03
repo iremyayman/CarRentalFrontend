@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http'
 import { CarService } from 'src/app/services/car.service';
 import { CarDetailService } from 'src/app/services/car-detail.service';
 import { ActivatedRoute } from '@angular/router';
+import { CarDetail } from 'src/app/models/cardetails';
 
 @Component({
   selector: 'app-car',
@@ -13,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CarComponent implements OnInit {
 
   cars:Car[]=[];
+  carDetails:CarDetail[]=[];
   dataloaded=false;
   constructor(private carService:CarService,
     private cardetailService:CarDetailService,
@@ -44,6 +46,7 @@ export class CarComponent implements OnInit {
   getCarsByColor(colorId:number){
     
   }
+  
   
 
 }

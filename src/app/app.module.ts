@@ -18,6 +18,7 @@ import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CarInfoComponent } from './components/car/carinfo/car-info/car-info.component';
+import { UserComponent } from './components/user/user.component';
 
 
 
@@ -33,7 +34,8 @@ import { CarInfoComponent } from './components/car/carinfo/car-info/car-info.com
     CarFilterComponent,
     CarDetailComponent,
     RegisterComponent,
-    CarInfoComponent
+    CarInfoComponent,
+    UserComponent
     
   ],
   imports: [

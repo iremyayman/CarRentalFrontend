@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrandComponent } from './components/brand/brand.component';
-import { CarComponent } from './components/car/car.component';
 import { CarDetailComponent } from './components/car/cardetail/car-detail/car-detail.component';
 import { CarInfoComponent } from './components/car/carinfo/car-info/car-info.component';
 import { ColorComponent } from './components/color/color.component';

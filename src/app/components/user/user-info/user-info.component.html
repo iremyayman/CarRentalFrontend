@@ -1,0 +1,43 @@
+<div class="container">
+    <img src="..\assets\images\userlogo.png" class="rounded mx-auto d-block" alt="..." style="height: 200px;width: 200px;">
+  <div class="card text-center ">
+    <div class="card-header bg-danger">
+      <ul class="nav nav-tabs card-header-tabs bg">
+        <li class="nav-item bg">
+          <a class="nav-link active " aria-current="true" href="#">Update</a>
+        </li>
+        
+       
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Informations</h5><br>
+      <tr>
+         
+      <ul class="list-group list-group-flush" >
+     <div class="row">
+        <div class="col-md-9 ">
+            <th class="list-group-item bg-light">First Name :</th><br>
+            <th class="list-group-item bg-light">Last Name :</th><br>
+            <th class="list-group-item bg-light">Email :</th><br>
+            <th class="list-group-item bg-light">Contact :</th><br>
+        </div>
+        
+        <div *ngIf="user" class="col-md-3">
+            <tr>{{user.firstName}}</tr><br><br>
+            <tr>{{user.lastName}}</tr><br><br>
+            <tr>{{user.email}}</tr><br><br>
+            <tr></tr><br><br>
+        </div>
+        
+     </div>
+
+       
+     </ul>
+     </tr>
+    
+    
+      
+    </div>
+ </div>
+</div> 

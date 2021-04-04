@@ -19,6 +19,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CarInfoComponent } from './components/car/carinfo/car-info/car-info.component';
 import { UserComponent } from './components/user/user.component';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { BrandDeleteComponent } from './components/brand/brand-delete/brand-delete.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
+import { UserInfoComponent } from './components/user/user-info/user-info.component';
 
 
 
@@ -35,7 +43,15 @@ import { UserComponent } from './components/user/user.component';
     CarDetailComponent,
     RegisterComponent,
     CarInfoComponent,
-    UserComponent
+    UserComponent,
+    BrandAddComponent,
+    BrandUpdateComponent,
+    BrandDeleteComponent,
+    ColorAddComponent,
+    CarAddComponent,
+    UserUpdateComponent,
+    ColorUpdateComponent,
+    UserInfoComponent
     
   ],
   imports: [

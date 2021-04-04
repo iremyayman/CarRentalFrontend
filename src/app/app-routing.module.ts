@@ -7,6 +7,7 @@ import { ColorComponent } from './components/color/color.component';
 import { FirstPageComponent } from './components/first-page/first-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserInfoComponent } from './components/user/user-info/user-info.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:"brands",component:BrandComponent},
   {path:"cars/color/:colorId",component:CarDetailComponent},
   {path:"cars/brand/:brandId",component:CarDetailComponent},
-  {path:"cars/info/:carId",component:CarInfoComponent}
+  {path:"cars/info/:carId",component:CarInfoComponent},
+  {path:"users/info/:email",component:UserInfoComponent}
 
 
   

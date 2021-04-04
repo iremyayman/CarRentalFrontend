@@ -40,11 +40,12 @@ updateUser(user: User): Observable<ResponseModel> {
 }
 
 getUserById(id: number): Observable<SingleResponseModel<User>> {
-  return this.httpClient.get<SingleResponseModel<User>>(this.apiUrl + 'id?id=' + id);
+  return this.httpClient.get<SingleResponseModel<User>>(this.apiUrl + 'getbyid?id=' + id);
 }
 getUserClaims(id: number): Observable<ListResponseModel<UserClaimsModel>> {
   return this.httpClient.get<ListResponseModel<UserClaimsModel>>
   (this.apiUrl + 'getuserclaims?id=' + id);
 }
+
 
 }

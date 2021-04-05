@@ -30,10 +30,11 @@
           </li>
         </ul>
         <form class="d-flex">
-          <button  [style.Display]="isAuthenticated()" classs="btn btn-outline-danger" type="submit" routerLink="login">Login</button>
-          <button  [style.Display]="isAuthenticated()" class="btn btn-outline-danger" type="submit" routerLink="register">Register</button>
          
-          <button  [style.Display]="logout"  class="btn btn-outline-danger" type="submit" routerLink="users/info/{{user.email}}">User</button>
+          <button  [style.Display]="isAuthenticated()" class="btn btn-outline-danger" type="submit" routerLink="register">Register</button>
+          <button  [style.Display]="isAuthenticated()" classs="btn btn-outline-danger" type="submit" routerLink="login">Login</button>
+         
+          <button  [style.Display]="logout"   class="btn btn-outline-danger" type="submit" routerLink="users/info/{{getEmail()}}">User</button>
           <button  [style.Display]="logout" (click)="logOut()" class="btn btn-outline-danger" type="submit" routerLink="home">LogOut</button>
           
             

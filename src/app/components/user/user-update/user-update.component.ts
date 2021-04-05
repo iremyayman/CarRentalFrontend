@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class UserUpdateComponent implements OnInit {
  dataloaded=false;
   constructor(private formsBuilder:FormBuilder,
     private userService:UserService,
-    private toastrService:ToastrService,private activatedRoute:ActivatedRoute) { }
+    private toastrService:ToastrService,private activatedRoute:ActivatedRoute,
+    private router:Router,private authService:AuthService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -32,6 +34,8 @@ export class UserUpdateComponent implements OnInit {
       firstName:["",Validators.required],
       lastName:["",Validators.required],
       email:["",Validators.required],
+      findeksScore:["",Validators.required],
+      password:["",Validators.required]
       
   
     })
@@ -39,24 +43,22 @@ export class UserUpdateComponent implements OnInit {
   }
   updateUser(){
     if(this.userUpdateForm.valid){
-      let userUpdateModel=Object.assign({},this.userUpdateForm.value)
+      let userUpdateModel = Object.assign({},this.userUpdateForm.value)
+      userUpdateModel.id=this.user.id;
+      userUpdateModel.passwordSalt=this.user.passwordSalt;
+      userUpdateModel.passwordHash=this.user.passwordHash;
       this.userService.updateUser(userUpdateModel).subscribe(response=>{
-        
-        this.toastrService.success(response.message,"Successfully updated")
+        this.toastrService.success("Please login to confirm.");
+        this.router.navigate([""]);
+        this.authService.logOut();
+       
       },responseError=>{
-        if(responseError.error.Errors.length>0){
-          for (let i = 0; i < responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Validation Error")
-          }
-         
-        }
-        })
-        
-      
-    
-    }else{
-      this.toastrService.error("Form is missing or wrong.")
-    }
+        this.toastrService.error(responseError.error);
+      })
+     }else{
+      this.toastrService.error("Error");
+      }
+
     
   }
   getById(id:number){

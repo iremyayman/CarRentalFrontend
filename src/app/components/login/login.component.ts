@@ -34,13 +34,12 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
       console.log(this.loginForm.value);
       let loginModel=Object.assign({},this.loginForm.value)
-
+      localStorage.setItem("email",this.loginForm.value.email)
       this.authService.login(loginModel).subscribe(response=>{
         
         this.toastrService.info(response.message)
         this.router.navigate(['home'])
         localStorage.setItem("token",response.data.token)
-       
       },responseError=>{
         
         this.toastrService.error(responseError.error)

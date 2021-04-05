@@ -1,1 +1,64 @@
-<p>user-update works!</p>
+<div class="container">
+    <img src="..\assets\images\userlogo.png" class="rounded mx-auto d-block" alt="..." style="height: 200px;width: 200px;">
+  <div class="card text-center ">
+    <div class="card-header bg-danger">
+      <ul class="nav nav-tabs card-header-tabs bg">
+       
+        
+       
+      </ul>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="userUpdateForm">
+      <h5 class="card-title">New Values</h5><br>
+      <tr>
+        <div class="form-floating">
+            <input formControlName="firstName"
+             type="firstName" 
+             class="form-control"
+              id="floatingInput"
+               placeholder="First Name">
+            <label for="floatingInput">First Name</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="lastName"
+             type="lastName" 
+             class="form-control" 
+             id="floatingInput"
+              placeholder="Last Name">
+            <label for="floatingInput">Last Name</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="email"
+             type="email" 
+             class="form-control" 
+             id="floatingInput"
+              placeholder="Email">
+            <label for="floatingInput">Email</label>
+          </div> 
+          <div class="form-floating">
+            <input formControlName="password"
+             type="password" 
+             class="form-control" 
+             id="floatingPassword"
+              placeholder="Password">
+            <label for="floatingInput">Password</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="findeksScore"
+             type="findeksScore" 
+             class="form-control" 
+             id="floatingInput"
+              placeholder="Findeks Score">
+            <label for="floatingInput">Findeks Score</label>
+          </div>
+
+          
+          <button  (click)="updateUser()" class="w-100 btn btn-lg btn-danger" >Update</button>
+          </form>
+      <ul class="list-group list-group-flush" >
+     <div class="row">
+       
+       
+<div>     
+    <div>   

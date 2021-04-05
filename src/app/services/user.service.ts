@@ -30,7 +30,7 @@ export class UserService {
   return this.httpClient.post<SingleResponseModel<UserFindeksResponseModel>>
   (this.apiUrl + 'getuserfindeks', userFindeksDto);
 }
-getUser(email: string): Observable<SingleResponseModel<User>> {
+getByEmail(email: string): Observable<SingleResponseModel<User>> {
   return this.httpClient.get<SingleResponseModel<User>>
   (this.apiUrl + 'getbyemail?email=' + email);
 }

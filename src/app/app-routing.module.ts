@@ -8,6 +8,7 @@ import { FirstPageComponent } from './components/first-page/first-page.component
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserInfoComponent } from './components/user/user-info/user-info.component';
+import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:"cars/color/:colorId",component:CarDetailComponent},
   {path:"cars/brand/:brandId",component:CarDetailComponent},
   {path:"cars/info/:carId",component:CarInfoComponent},
-  {path:"users/info/:email",component:UserInfoComponent}
+  {path:"users/info/:email",component:UserInfoComponent},
+  {path:"users/info/update/:id",component:UserUpdateComponent}
 
 
   

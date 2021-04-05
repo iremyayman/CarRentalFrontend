@@ -25,4 +25,8 @@ export class AuthService {
   register(registerModel:User){
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
   }
+  logOut(){
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+  }
 }

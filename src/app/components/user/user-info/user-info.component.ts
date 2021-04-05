@@ -20,13 +20,16 @@ export class UserInfoComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["email"]){
-        this.getbyEmail(params["email"]);
+        this.getByEmail(params["email"]);
+        
+        
       
       }
+      
     })
   }
-  getbyEmail(email:string){
-    this.userService.getUser(email).subscribe(response=>{
+  getByEmail(email:string){
+    this.userService.getByEmail(email).subscribe(response=>{
       this.user = response.data;
       this.dataloaded=true;
     })

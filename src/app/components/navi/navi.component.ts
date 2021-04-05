@@ -21,6 +21,8 @@ constructor(private authService:AuthService,
   logout="none";
 login="#";
 
+email:string;
+
 ngOnInit(): void {
   
 }
@@ -45,8 +47,8 @@ logOut(){
   
 }
 getEmail(){
-  let email= localStorage.getItem("email");
-  return email;
+   let email= localStorage.getItem("email");
+   return email;
 }
 
 }

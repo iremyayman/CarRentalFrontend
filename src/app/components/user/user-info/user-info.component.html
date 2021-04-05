@@ -4,7 +4,7 @@
     <div class="card-header bg-danger">
       <ul class="nav nav-tabs card-header-tabs bg">
         <li class="nav-item bg">
-          <a class="nav-link active " aria-current="true" href="#">Update</a>
+          <a class="nav-link active " aria-current="true" href="users/info/update/{{user.id}}">Update</a>
         </li>
         
        
@@ -20,15 +20,16 @@
             <th class="list-group-item bg-light">First Name :</th><br>
             <th class="list-group-item bg-light">Last Name :</th><br>
             <th class="list-group-item bg-light">Email :</th><br>
-            <th class="list-group-item bg-light">Contact :</th><br>
+            <th class="list-group-item bg-light">Findeks Score :</th><br>
         </div>
         
-        <div *ngIf="user" class="col-md-3">
+        <div *ngIf="user"  class="col-md-3">
             <tr>{{user.firstName}}</tr><br><br>
             <tr>{{user.lastName}}</tr><br><br>
             <tr>{{user.email}}</tr><br><br>
-            <tr></tr><br><br>
+            <tr>{{user.findeksScore}}</tr><br><br>
         </div>
+        
         
      </div>
 

@@ -14,7 +14,7 @@ export class BrandUpdateComponent implements OnInit {
 
 brand:Brand;
 dataloaded=false;
-  brandUpdateForm:FormGroup;
+brandUpdateForm:FormGroup;
    constructor(private formsBuilder:FormBuilder,
      private brandService:BrandService,
      private toastrService:ToastrService,
@@ -22,8 +22,8 @@ dataloaded=false;
  
    ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      if(params["id"]){
-        this.getBrandById(params["id"]);
+      if(params["brandId"]){
+        this.getBrandById(params["brandId"]);
         this.createBrandUpdateForm();
       }
     })
@@ -31,7 +31,7 @@ dataloaded=false;
  createBrandUpdateForm(){
    this.brandUpdateForm=this.formsBuilder.group({
    
-     colorName:["",Validators.required]
+     brandName:["",Validators.required]
  
    })
  }
@@ -39,24 +39,20 @@ dataloaded=false;
  
    if(this.brandUpdateForm.valid){
      let brandModel=Object.assign({},this.brandUpdateForm.value)
-     this.brandService.add(brandModel).subscribe(response=>{
+     brandModel.brandId=this.brand.brandId;
+     this.brandService.update(brandModel).subscribe(response=>{
        
        this.toastrService.success(response.message,"Successfully updated.")
      },responseError=>{
-       if(responseError.error.Errors.length>0){
-         for (let i = 0; i < responseError.error.Errors.length; i++) {
-           this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Validation Error.")
-         }
-        
-       }
-       })
-    }else{
-     this.toastrService.error("Form is missing or wrong.")
-   }
+      this.toastrService.error("Error")
+      })
+   }else{
+    this.toastrService.error("Form is missing or wrong.")
+  }
     
  }
    getBrandById(id:number){
-    this.brandService.getById(id).subscribe(response=>{
+    this.brandService.getBrandById(id).subscribe(response=>{
       this.brand=response.data;
       this.dataloaded=true;
       console.log(this.brand)

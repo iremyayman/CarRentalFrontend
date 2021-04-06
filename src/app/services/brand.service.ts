@@ -19,11 +19,11 @@ export class BrandService {
   add(brand:Brand):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"add",brand)
   }
-  update(brand:Brand):Observable<ResponseModel> {
-    return this.httpClient.post<ResponseModel>
-    (this.apiUrl + 'update', {brand:brand});
+  update(brand:Brand):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"update",brand);
   }
-  getById(id:number):Observable<SingleResponseModel<Brand>>{
-    return this.httpClient.get<SingleResponseModel<Brand>>(this.apiUrl + 'getbyid?id=' + id);
+  getBrandById(brandId:number): Observable<SingleResponseModel<Brand>> {
+    let newPath = this.apiUrl+'getbyid?id='+brandId;
+    return this.httpClient.get<SingleResponseModel<Brand>>(newPath);
   }
 }

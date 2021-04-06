@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/cardetails';
 import { CarImage } from 'src/app/models/carImage';
+import { Color } from 'src/app/models/color';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { CarDetailService } from 'src/app/services/car-detail.service';
@@ -15,6 +16,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NaviComponent implements OnInit {
 user:User;
+color:Color;
 constructor(private authService:AuthService,
   private userService:UserService,
   private activatedRoute:ActivatedRoute,private localStorageService:LocalStorageService ) { }

@@ -18,11 +18,10 @@ export class ColorService {
   add(color:Color):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"add",color)
   }
-  update(color:Color):Observable<ResponseModel> {
-    return this.httpClient.post<ResponseModel>
-    (this.apiUrl + 'update', {color:color});
+  update(color:Color):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"update",color);
   }
-  getById(id:number):Observable<SingleResponseModel<Color>>{
-    return this.httpClient.get<SingleResponseModel<Color>>(this.apiUrl + 'getbyid?id=' + id);
+  getById(colorId:number):Observable<SingleResponseModel<Color>>{
+    return this.httpClient.get<SingleResponseModel<Color>>(this.apiUrl + 'getbyid?id='+colorId);
   }
 }

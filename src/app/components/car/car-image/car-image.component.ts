@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
@@ -9,11 +8,12 @@ import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-car-info',
-  templateUrl: './car-info.component.html',
-  styleUrls: ['./car-info.component.css']
+  selector: 'app-car-image',
+  templateUrl: './car-image.component.html',
+  styleUrls: ['./car-image.component.css']
 })
-export class CarInfoComponent implements OnInit {
+export class CarImageComponent implements OnInit {
+
   carDetails:CarDetail[]=[];
   carDetail:CarDetail;
   carImage:CarImage;
@@ -31,8 +31,7 @@ export class CarInfoComponent implements OnInit {
       if(params["carId"]){
         this.getCarsById(params["carId"]);
         this.getCarDetail(params["carId"]);
-        
-      
+        this.getCarImagesById(params["carId"]);
         
 
         
@@ -45,7 +44,7 @@ export class CarInfoComponent implements OnInit {
   }
   getCarDetail(carId:number){
     this.cardetailService.getCarDetail(carId).subscribe(response=>{
-     
+      this.carDetail.carId=this.car.carId;
       this.carDetail=response.data
       this.dataloaded=true;
     })

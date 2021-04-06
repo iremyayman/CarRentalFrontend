@@ -1,7 +1,8 @@
 
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Color } from 'src/app/models/color';
 import { ColorService } from 'src/app/services/color.service';
@@ -14,16 +15,19 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorUpdateComponent implements OnInit {
 color:Color;
 dataloaded=false;
-  colorUpdateForm:FormGroup;
+colorUpdateForm:FormGroup;
    constructor(private formsBuilder:FormBuilder,
      private colorService:ColorService,
      private toastrService:ToastrService,
-     private activatedRoute:ActivatedRoute) { }
+     private activatedRoute:ActivatedRoute,
+     private router:Router) { }
  
    ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      if(params["id"]){
-        this.getColorById(params["id"]);
+      if(params["colorId"]){
+      
+        
+        this.getColorById(params["colorId"]);
         this.createColorUpdateForm();
       }
     })
@@ -39,16 +43,14 @@ dataloaded=false;
  
    if(this.colorUpdateForm.valid){
      let colorModel=Object.assign({},this.colorUpdateForm.value)
-     this.colorService.add(colorModel).subscribe(response=>{
+     colorModel.colorId=this.color.colorId;
+     console.log(colorModel)
+     this.colorService.update(colorModel).subscribe(response=>{
        
        this.toastrService.success(response.message,"Successfully updated.")
+       this.router.navigate(["color/update"])
      },responseError=>{
-       if(responseError.error.Errors.length>0){
-         for (let i = 0; i < responseError.error.Errors.length; i++) {
-           this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Validation Error.")
-         }
-        
-       }
+       this.toastrService.error("Error")
        })
     }else{
      this.toastrService.error("Form is missing or wrong.")
@@ -62,4 +64,5 @@ dataloaded=false;
       console.log(this.color)
     })
    }
+   
 }

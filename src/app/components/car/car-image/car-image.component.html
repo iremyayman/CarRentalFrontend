@@ -1,0 +1,30 @@
+
+  <div class="card" style="border-radius: 20px;">
+      <div class="card-body">
+          <div>
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="width: 1000;">
+                  <div class="carousel-inner">
+                    <div *ngFor="let carImage of carImages; let i = index"  [class]="getSliderClassName(i)">
+                      <img src="{{imageUrl}}{{carImage.imagePath}}" class="d-block w-100" alt="..." style="width:1320px !important; height:700px !important;">
+                      <div class="carousel-caption d-none d-md-block">
+                         
+                        </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+  
+                
+          </div>
+  
+      </div>
+  
+  </div>
+

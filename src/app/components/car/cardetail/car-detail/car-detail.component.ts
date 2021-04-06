@@ -16,18 +16,22 @@ export class CarDetailComponent implements OnInit {
   imageUrl=environment.imageUrl;
   carDetails:CarDetail[]=[];
   carDetail:CarDetail;
+  car:Car;
   carImages:CarImage[]=[];
   cars:Car[]=[];
   carImage:CarImage;
   dataloaded=false;
+  apiUrl=environment.apiUrl;
 
   constructor(private cardetailService:CarDetailService,private activatedRoute:ActivatedRoute,private carService:CarService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
      
-      
-       if(params["brandId"]){
+      if(params["carId"]){
+        this.getCarDetail(params["carId"])
+      }
+       else if(params["brandId"]){
         this.getCarDetailsByBrand(params["brandId"]);
       }else if(params["colorId"]){
         this.getCarDetailsByColor(params["colorId"]);

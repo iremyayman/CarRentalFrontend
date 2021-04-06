@@ -21,12 +21,17 @@ import { CarInfoComponent } from './components/car/carinfo/car-info/car-info.com
 import { UserComponent } from './components/user/user.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
-import { BrandDeleteComponent } from './components/brand/brand-delete/brand-delete.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
 import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
 import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
 import { UserInfoComponent } from './components/user/user-info/user-info.component';
+import { ColorListComponent } from './components/color/color-list/color-list.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { CarImageComponent } from './components/car/car-image/car-image.component';
+
+
+
 
 
 
@@ -46,12 +51,17 @@ import { UserInfoComponent } from './components/user/user-info/user-info.compone
     UserComponent,
     BrandAddComponent,
     BrandUpdateComponent,
-    BrandDeleteComponent,
     ColorAddComponent,
     CarAddComponent,
     UserUpdateComponent,
     ColorUpdateComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    ColorListComponent,
+    BrandListComponent,
+    CarImageComponent,
+    
+  
+   
     
   ],
   imports: [

@@ -1,1 +1,32 @@
-<p>color-add works!</p>
+<div class="container">
+    
+  <div class="card text-center ">
+    <div class="card-header bg-danger">
+      <ul class="nav nav-tabs card-header-tabs bg">
+       
+        
+       
+      </ul>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="colorAddForm">
+      <h5 class="card-title">New Color</h5><br>
+      <tr>
+        <div class="form-floating">
+            <input formControlName="colorName"
+             type="colorName" 
+             class="form-control"
+              id="floatingInput"
+               placeholder="Color Name">
+            <label for="floatingInput">Color Name</label>
+          </div>
+
+          
+          <button  (click)="add()" class="w-100 btn btn-lg btn-danger" >Add</button>
+          </form>
+      
+       
+       
+<div>     
+    
+    <div>   

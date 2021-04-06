@@ -32,19 +32,20 @@ export class UserService {
 }
 getByEmail(email: string): Observable<SingleResponseModel<User>> {
   return this.httpClient.get<SingleResponseModel<User>>
-  (this.apiUrl + 'getbyemail?email=' + email);
+  (this.apiUrl + 'getbyemail?email='+email);
 }
-updateUser(user: User): Observable<ResponseModel> {
-  return this.httpClient.post<ResponseModel>
-  (this.apiUrl + 'update', {user: user, password: user.password});
+updateUser(user:User):Observable<ResponseModel>{
+  let newPath= this.apiUrl+"update";
+  return this.httpClient.post<ResponseModel>(newPath,user);
 }
 
 getUserById(id: number): Observable<SingleResponseModel<User>> {
-  return this.httpClient.get<SingleResponseModel<User>>(this.apiUrl + 'getbyid?id=' + id);
+  let newPath = this.apiUrl+"getbyid?id="+id;
+  return this.httpClient.get<SingleResponseModel<User>>(newPath);
 }
 getUserClaims(id: number): Observable<ListResponseModel<UserClaimsModel>> {
   return this.httpClient.get<ListResponseModel<UserClaimsModel>>
-  (this.apiUrl + 'getuserclaims?id=' + id);
+  (this.apiUrl + 'getuserclaims?id='+id);
 }
 
 

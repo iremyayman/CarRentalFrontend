@@ -1,1 +1,32 @@
-<p>brand-update works!</p>
+<div class="container">
+    
+    <div class="card text-center ">
+      <div class="card-header bg-danger">
+        <ul class="nav nav-tabs card-header-tabs bg">
+         
+        </ul>
+      </div>
+    <div class="card-body">
+          <form [formGroup]="brandUpdateForm">
+         
+            <h5 class="card-title">Update Brand</h5><br>
+          <div class="form-floating">
+            
+              <input formControlName="brandName"
+               type="brandName" 
+               class="form-control"
+                id="floatingInput"
+                 placeholder="Brand Name">
+              <label for="floatingInput">Brand Name</label>
+            </div>
+  
+            
+            <button  (click)="update()" class="w-100 btn btn-lg btn-danger"  >Update</button>
+            </form>
+        
+         
+         
+  <div>     
+<div>   
+    </div>
+    

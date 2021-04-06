@@ -49,8 +49,8 @@ export class UserUpdateComponent implements OnInit {
       userUpdateModel.passwordHash=this.user.passwordHash;
       this.userService.updateUser(userUpdateModel).subscribe(response=>{
         this.toastrService.success("Please login to confirm.");
-        this.router.navigate([""]);
-        this.authService.logOut();
+        
+       
        
       },responseError=>{
         this.toastrService.error(responseError.error);

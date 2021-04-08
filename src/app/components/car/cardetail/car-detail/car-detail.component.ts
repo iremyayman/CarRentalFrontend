@@ -32,13 +32,11 @@ export class CarDetailComponent implements OnInit {
         this.getCarDetail(params["carId"])
       }
        else if(params["brandId"]){
-        this.getCarDetailsByBrand(params["brandId"]);
+        this.getCarsByBrand(params["brandId"]);
       }else if(params["colorId"]){
-        this.getCarDetailsByColor(params["colorId"]);
-      }else if(params["brandId"] && params["colorId"]){
-        this.getCarDetailsByBrandAndColor(params["brandId"],params["colorId"]);
+        this.getCarsByColor(params["colorId"]);
       }else{
-        this.getCarDetails();
+        this.getCars();
       }
     })
   }
@@ -58,6 +56,7 @@ export class CarDetailComponent implements OnInit {
   getCarDetailsByBrand(brandId:number){
     this.cardetailService.getCarDetailsByBrand(brandId).subscribe(response=>{
       this.carDetails=response.data;
+      this.dataloaded=true;
     })
   }
   getCarDetailsByColor(colorId:number){
@@ -70,16 +69,25 @@ export class CarDetailComponent implements OnInit {
       this.carDetails=response.data;
     })
   }
-  getCarImagesById(carId:number){
-    this.cardetailService.getCarImagesById(carId).subscribe(response=>{
-      this.carImages=response.data;
-    })
-  }
-  getCarImageById(carId:number){
-    this.cardetailService.getCarImageById(carId).subscribe(response=>{
-      this.carImage=response.data;
-    })
-  }
-
+  
+ 
+ getCars(){
+   this.carService.getCars().subscribe(response=>{
+     this.cars=response.data;
+     this.dataloaded=true;
+   })
+ }
+ getCarsByColor(colorId:number){
+   this.carService.getCarsByColor(colorId).subscribe(response=>{
+     this.cars=response.data;
+     this.dataloaded=true;
+   })
+ }
+ getCarsByBrand(brandId:number){
+  this.carService.getCarsByBrand(brandId).subscribe(response=>{
+    this.cars=response.data;
+    this.dataloaded=true;
+  })
+}
 
 }

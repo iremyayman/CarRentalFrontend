@@ -1,0 +1,42 @@
+<div class="container" style="min-width: 2000px">
+    <div class="card text-center">
+      <div class="card-header" style="background-color: #ffe4e1">
+        
+      </div>
+      <div class="card-body">
+        <div class="col-8">
+          <label style="border-radius: 10px;border-color: d; width: 500px; "
+            class="image-upload-container btn btn-bwm">
+            <span class=""
+              style="font-size: 18px; font-style: italic; font-size: larger;">Select
+              Image</span>&nbsp;:
+            <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+          </label>
+    
+          <div *ngIf="selectedFile" class="img-preview-container">
+    
+            <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
+              [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
+            </div>
+    
+            <div *ngIf="selectedFile.pending" class="img-loading-overlay">
+              <div class="img-spinning-circle"></div>
+            </div>
+    
+            <div *ngIf="selectedFile.status === 'ok'" class="alert alert-success"> Image Uploaded Succesfuly!</div>
+            <div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger"> Image Upload Failed!</div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row md-6">
+            
+              <div class="card-body">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  

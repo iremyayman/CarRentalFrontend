@@ -4,6 +4,12 @@ import { BrandAddComponent } from './components/brand/brand-add/brand-add.compon
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 import { BrandComponent } from './components/brand/brand.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { CarUpdateOptionsComponent } from './components/car/car-update/car-update-options/car-update-options.component';
+import { AddImagesComponent } from './components/car/car-update/car-update-options/add-images/add-images.component';
+import { PreviewImageComponent } from './components/car/car-update/car-update-options/preview-image/preview-image.component';
+import { UpdateCarComponent } from './components/car/car-update/car-update-options/update-car/update-car.component';
+import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { CarDetailComponent } from './components/car/cardetail/car-detail/car-detail.component';
 import { CarInfoComponent } from './components/car/carinfo/car-info/car-info.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
@@ -35,7 +41,14 @@ const routes: Routes = [
   {path:"color/add",component:ColorAddComponent},
   {path:"brand/add",component:BrandAddComponent},
   {path:"color/update/:colorId",component:ColorUpdateComponent},
-  {path:"brand/update/:brandId",component:BrandUpdateComponent}
+  {path:"brand/update/:brandId",component:BrandUpdateComponent},
+  {path:"car/add",component:CarAddComponent},
+  {path:"car/update",component:CarUpdateComponent},
+  {path:"cars/update/:carId",component:UpdateCarComponent},
+  {path:"cars/update/options/:carId",component:CarUpdateOptionsComponent},
+  {path:"cars/update/previewimage/:carId",component:PreviewImageComponent},
+  {path:"cars/update/addimages/:carId",component:AddImagesComponent}
+  
   
 
 

@@ -29,6 +29,15 @@ import { UserInfoComponent } from './components/user/user-info/user-info.compone
 import { ColorListComponent } from './components/color/color-list/color-list.component';
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 import { CarImageComponent } from './components/car/car-image/car-image.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CarUpdateComponent } from './components/car/car-update/car-update.component';
+import { CarUpdateOptionsComponent } from './components/car/car-update/car-update-options/car-update-options.component';
+import { UpdateCarComponent } from './components/car/car-update/car-update-options/update-car/update-car.component';
+import { PreviewImageComponent } from './components/car/car-update/car-update-options/preview-image/preview-image.component';
+import { AddImagesComponent } from './components/car/car-update/car-update-options/add-images/add-images.component';
+import { RentalComponent } from './components/rental/rental.component';
+
+
 
 
 
@@ -59,6 +68,15 @@ import { CarImageComponent } from './components/car/car-image/car-image.componen
     ColorListComponent,
     BrandListComponent,
     CarImageComponent,
+    FooterComponent,
+    CarUpdateComponent,
+    CarUpdateOptionsComponent,
+    UpdateCarComponent,
+    PreviewImageComponent,
+    AddImagesComponent,
+    RentalComponent
+  
+    
     
   
    

@@ -25,11 +25,7 @@ export class UserService {
   removeUser(user: User): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + 'delete', user);
   }
-  getUserFindeks(userFindeksDto: UserFindeksModel):
-  Observable<SingleResponseModel<UserFindeksResponseModel>> {
-  return this.httpClient.post<SingleResponseModel<UserFindeksResponseModel>>
-  (this.apiUrl + 'getuserfindeks', userFindeksDto);
-}
+ 
 getByEmail(email: string): Observable<SingleResponseModel<User>> {
   return this.httpClient.get<SingleResponseModel<User>>
   (this.apiUrl + 'getbyemail?email='+email);

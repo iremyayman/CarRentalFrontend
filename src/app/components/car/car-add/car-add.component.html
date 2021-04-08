@@ -1,1 +1,73 @@
-<p>car-add works!</p>
+
+<div class="container">
+    
+    <div class="card text-center ">
+      <div class="card-header" style="background-color:	#FFE4E1;min-height: 100px;">
+        <ul class="nav nav-tabs card-header-tabs bg">
+         
+          
+         
+        </ul>
+      </div>
+      <div class="container">
+      <div class="card-body">
+          <form [formGroup]="carAddForm">
+        <h5 class="card-title">New Car</h5><br>
+        <tr>
+          <div class="form-floating">
+              <input formControlName="brandId"
+               type="number" 
+               class="form-control"
+                id="floatingInput"
+                 placeholder="Brand Id">
+              <label for="floatingInput">Brand Id</label>
+            </div>
+            <div class="form-floating">
+                <input formControlName="colorId"
+                 type="number" 
+                 class="form-control"
+                  id="floatingInput1"
+                   placeholder="Color Id">
+                <label for="floatingInput1">Color Id </label>
+              </div>
+              <div class="form-floating">
+                <input formControlName="modelYear"
+                 type="number" 
+                 class="form-control"
+                  id="floatingInput2"
+                   placeholder="Model Year">
+                <label for="floatingInput2">Model Year </label>
+              </div>
+              <div class="form-floating">
+                <input formControlName="dailyPrice"
+                 type="number" 
+                 class="form-control"
+                  id="floatingInput3"
+                   placeholder="Daily Price">
+                <label for="floatingInput3">Daily Price </label>
+              </div>
+              <div class="form-floating">
+                <input formControlName="description"
+                 type="text" 
+                 class="form-control"
+                  id="floatingInput4"
+                   placeholder="Description">
+                <label for="floatingInput4">Description</label>
+              </div>
+              <div class="form-floating">
+                <input formControlName="findeksScore"
+                 type="number" 
+                 class="form-control"
+                  id="floatingInput5"
+                   placeholder="Findex Score">
+                <label for="floatingInput5">Findex Score</label>
+              </div>
+              
+            </form>
+            
+            <button  (click)="add()" class="w-100 btn btn-danger" style="max-width: 200px;" >Add</button>
+        
+        </div>
+         
+         
+     

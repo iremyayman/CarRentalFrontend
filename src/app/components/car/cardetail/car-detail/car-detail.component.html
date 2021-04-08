@@ -1,11 +1,11 @@
 <div class="container">
 <div class="row md-4">
-<div *ngFor="let cardetail of carDetails" class="card text-dark bg-light mb-3" style="width: 18rem;">
-    <img src="{{imageUrl}}{{cardetail.imagePath}}" class="card-img-top" alt="..."height="250" >
+<div *ngFor="let car of cars" class="card text-dark bg-light mb-3" style="width: 18rem;">
+    <img src="{{imageUrl}}{{car.initialImage}}" class="card-img-top" alt="..."height="250" >
     <div class="card-body">
-      <h5 class="card-title">{{cardetail.description}}</h5>
+      <h5 class="card-title">{{car.description}}</h5>
      
-      <a href="#" class="btn btn-outline-danger" routerLink="/cars/info/{{cardetail.carId}}" >Show More</a>
+      <a href="#" class="btn btn-outline-danger" routerLink="/cars/info/{{car.carId}}" >Show More</a>
     </div>
   </div>
   </div>

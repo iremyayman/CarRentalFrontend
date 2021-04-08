@@ -24,7 +24,8 @@ registerForm:FormGroup;
       email:["",Validators.required],
       password:["",Validators.required],
       firstName:["",Validators.required],
-      lastName:["",Validators.required]
+      lastName:["",Validators.required],
+      findeksScore:["",Validators.required]
 
 
 

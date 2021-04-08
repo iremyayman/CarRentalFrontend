@@ -1,11 +1,11 @@
 <div class="container">
 <div class="row ">
-    <div *ngFor="let brand of brands" class="card border-danger mb-3 bg-light" style="max-width: 18rem;">
+    <div *ngFor="let brand of brands" class="card border-danger mb-3 " style="max-width: 18rem;background-color:	#fafafa">
    
         <div class="card-body text-dark ">
           <h5 class="card-title">{{brand.brandName}}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button type="button" class="btn btn-danger" routerLink="/cars/brand/{{brand.brandId}}">Show Cars</button>
+          <p class="card-text"></p>
+          <button type="button" class="btn btn-outline-danger"  routerLink="/cars/brand/{{brand.brandId}}">Show Cars</button>
         </div>
    
     </div>

@@ -1,0 +1,30 @@
+<div class="container" style="min-width:  2000px;">
+<div class="card text-center">
+    <div class="card-header" style="background-color:	#FFE4E1;">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true" href="#">Choose Car</a>
+        </li>
+       
+      </ul>
+    </div>
+    <div class="card-body">
+        <div class="container">
+           
+                <div class="row md-6">
+                <div *ngFor="let car of cars" class="card text-dark bg-light mb-3" style="width: 18rem;">
+                    <img src="{{imageUrl}}{{car.initialImage}}" class="card-img-top" alt="..."height="250" >
+                    <div class="card-body">
+                      <h5 class="card-title">{{car.description}}</h5>
+                     
+                      <a href="#" class="btn btn-outline-danger" routerLink="/cars/update/options/{{car.carId}}" >Update</a>
+                    </div>
+                  </div>
+                  </div>
+             
+                
+  
+    </div>
+    </div>
+  </div>
+</div>

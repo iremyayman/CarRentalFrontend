@@ -29,7 +29,7 @@ export class CarInfoComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["carId"]){
-        this.getCarsById(params["carId"]);
+      
         this.getCarDetail(params["carId"]);
         
       

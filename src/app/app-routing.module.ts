@@ -21,6 +21,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserInfoComponent } from './components/user/user-info/user-info.component';
 import { UserUpdateComponent } from './components/user/user-update/user-update.component';
+import { RentalComponent } from './components/rental/rental.component';
+import { GetRentalsComponent } from './components/rental/get-rentals/get-rentals.component';
+import { GetByuserRentalsComponent } from './components/rental/get-byuser-rentals/get-byuser-rentals.component';
 
 
 const routes: Routes = [
@@ -47,7 +50,10 @@ const routes: Routes = [
   {path:"cars/update/:carId",component:UpdateCarComponent},
   {path:"cars/update/options/:carId",component:CarUpdateOptionsComponent},
   {path:"cars/update/previewimage/:carId",component:PreviewImageComponent},
-  {path:"cars/update/addimages/:carId",component:AddImagesComponent}
+  {path:"cars/update/addimages/:carId",component:AddImagesComponent},
+  {path:"rental/:carId",component:RentalComponent},
+  {path:"all/rentals",component:GetRentalsComponent},
+  {path:"user/rentals/:id",component:GetByuserRentalsComponent}
   
   
 

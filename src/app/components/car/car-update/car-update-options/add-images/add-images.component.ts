@@ -36,7 +36,7 @@ export class AddImagesComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["carId"]){
-        this.getCarDetailById(params["carId"]);
+        this.getCarById(params["carId"]);
         
       }
   
@@ -72,19 +72,19 @@ export class AddImagesComponent implements OnInit {
     
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    console.log(this.carDetail.carId)
+    console.log(this.car.carId)
 
     reader.addEventListener('load', (event: any) => {
 
       this.selectedFile = new ImageSnippet(event.target.result, file);
       this.selectedFile.pending = true;
       
-      this.carImageService.uploadImage(this.selectedFile.file,this.carDetail.carId).subscribe((response) => {
+      this.carImageService.uploadImage(this.selectedFile.file,this.car.carId).subscribe((response) => {
           this.onSuccess();
         },error => {
           this.onError();
           console.log(error)
-          console.log("carId")
+          console.log(this.car.carId)
           this.toastrService.error(error.error.message)
           setTimeout(function(){
             alert("You are redirected back to Home Page");

@@ -31,21 +31,22 @@
                             
                         </tr><br>
                     </thead>
-                    <tbody>
-                
+                    <tbody *ngIf="carDetail">
+                      
                           <td>{{ carDetail.brandName }}</td>
                           <td>{{ carDetail.colorName }}</td>
                           <td>{{ carDetail.modelYear }}</td>
                           <td>${{ carDetail.dailyPrice }}</td>
                           <td>{{ carDetail.description }}</td>
-                          <td>{{carDetail.findeksScore}}</td>
+                          <td>{{ carDetail.findeksScore}}</td>
+                       
                          
                       
                          
         
                         
                     </tbody><br>
-                    <button   class="w-100 btn btn-lg btn-danger" style="width:400px;" >Rent Now</button>
+                    <button   class="w-100 btn btn-lg btn-danger" style="width:400px;" routerLink="/rental/{{carDetail.carId}}" >Rent Now</button>
                 </table>
               </div>
           </div>

@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
@@ -29,6 +30,7 @@ export class CarDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
      
       if(params["carId"]){
+    
         this.getCarDetail(params["carId"])
       }
        else if(params["brandId"]){
@@ -86,6 +88,12 @@ export class CarDetailComponent implements OnInit {
  getCarsByBrand(brandId:number){
   this.carService.getCarsByBrand(brandId).subscribe(response=>{
     this.cars=response.data;
+    this.dataloaded=true;
+  })
+}
+getCarById(carId:number){
+  this.carService.getCarsById(carId).subscribe(response=>{
+    this.car=response.data;
     this.dataloaded=true;
   })
 }

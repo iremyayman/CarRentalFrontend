@@ -36,6 +36,8 @@ import { UpdateCarComponent } from './components/car/car-update/car-update-optio
 import { PreviewImageComponent } from './components/car/car-update/car-update-options/preview-image/preview-image.component';
 import { AddImagesComponent } from './components/car/car-update/car-update-options/add-images/add-images.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { GetRentalsComponent } from './components/rental/get-rentals/get-rentals.component';
+import { GetByuserRentalsComponent } from './components/rental/get-byuser-rentals/get-byuser-rentals.component';
 
 
 
@@ -74,7 +76,9 @@ import { RentalComponent } from './components/rental/rental.component';
     UpdateCarComponent,
     PreviewImageComponent,
     AddImagesComponent,
-    RentalComponent
+    RentalComponent,
+    GetRentalsComponent,
+    GetByuserRentalsComponent
   
     
     

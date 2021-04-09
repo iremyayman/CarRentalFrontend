@@ -1,1 +1,458 @@
-<p>rental works!</p>
+<div class="container">
+<div class="card" style="max-width: 1400px;max-height: 1200px;">
+    <div class="card-body">
+      <div>
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div
+              *ngFor="let carImage of carImages; let i = index"
+              [class]="getSliderClassName(i)"
+            >
+              <img
+                src="{{ imageUrl }}{{ carImage.imagePath }}"
+                class="d-block w-100"
+                alt="..."
+                style="width: 1320px !important; height: 700px !important"
+              />
+              
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+  
+        <table class="table m-1">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                style="
+                  background-color: #212529;
+                  color: white;
+                  border-radius: 10px;
+                "
+              >
+                Brand
+              </th>
+              <th
+                scope="col"
+                style="
+                  background-color: #212529;
+                  color: white;
+                  border-radius: 10px;
+                "
+              >
+                Color
+              </th>
+              <th
+                scope="col"
+                style="
+                  background-color: #212529;
+                  color: white;
+                  border-radius: 10px;
+                "
+              >
+                Model Year
+              </th>
+              <th
+                scope="col"
+                style="
+                  background-color: #212529;
+                  color: white;
+                  border-radius: 10px;
+                "
+              >
+                 Findex Score
+              </th>
+              <th
+                scope="col"
+                style="
+                  background-color: #212529;
+                  color: white;
+                  border-radius: 10px;
+                "
+              >
+                Daily Price
+              </th>
+              <th
+                scope="col"
+                style="
+                  background-color: #212529;
+                  color: white;
+                  border-radius: 10px;
+                "
+              >
+                Daily Price 
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="carDetail">
+              <td>{{ carDetail.brandName }}</td>
+              <td>{{ carDetail.colorName }}</td>
+              <td>{{ carDetail.modelYear }}</td>
+              <td>{{ carDetail.findeksScore }}</td>
+              <td>{{ carDetail.dailyPrice  }}</td>
+              <td>{{ carDetail.dailyPrice }}</td>
+              <td>
+                <button
+                  routerLink="/cars"
+                  type="button"
+                  aria-current="true"
+                  class="btn  btn-outline-danger"
+                >
+                  Get Back
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  <div>
+  
+    <div>
+      <body class="bg">
+        <div class="container">
+          <main>
+            <div class="py-5 text-center">
+              <img
+                class="d-block mx-auto mb-4"
+                [src]="imagePathCheckOut"
+                alt=""
+                width="200 "
+                height="200"
+              />
+              <h2>Checkout form</h2>
+              <p class="lead"></p>
+            </div>
+  
+            <div class="row g-5">
+              <div class="col-md-5 col-lg-4 order-md-last">
+                <h4
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <span  style="color:#5e2ced;" class="text">Your Request</span>
+                  <span  style="background: #dc3545;" class="badge rounded-pill">1</span>
+                </h4>
+                <ul class="list-group mb-3">
+                  <li
+                    class="list-group-item d-flex justify-content-between lh-sm"
+                  >
+                    <div>
+                      <h6 class="my-0">{{ carDetail.description }}</h6>
+                      <small class="text-muted">Daily Price</small>
+                    </div>
+                    <span class="text-muted"
+                      >{{ carDetail.dailyPrice  }}
+                    </span>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between bg-light"
+                  >
+                    
+                    
+                  </li>
+                  <li *ngIf="amount>1" class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong >Calculated Price : {{amount}}</strong>
+                  </li>
+                </ul>
+  
+                
+              </div>
+  
+              <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Required Informations</h4>
+                <hr>
+                <form class="needs-validation" novalidate>
+                  <div class="row g-3">
+                    <label for="rentDate" class="col-4 col-form-label"
+                      >Rent Date:</label
+                    >
+                    <div class="form-group row mb-2">
+                      <div class="col-8">
+                        <input
+                          class="form-control"
+                          min="{{ getDate(1) }}"
+                          value="{{ getDate(1) }}"
+                          type="date"
+                          [(ngModel)]="rentDate"
+                          [ngModelOptions]="{standalone: true}"
+                        />
+                      </div>
+                    </div>
+  
+                    <label for="returnDate" class="col-4 col-form-label"
+                      >Return Date:</label
+                    >
+                    <div class="form-group row">
+                      <div class="col-8">
+                        <input
+                          class="form-control"
+                          type="date"
+                          min="{{ getDate(2) }}"
+                          value="{{ getDate(2) }}"
+                          [(ngModel)]="returnDate"
+                          [ngModelOptions]="{standalone: true}"
+                        />
+                      </div>
+                    </div>
+  
+                    <button  style="margin-left: 10px;background-color:	#FFE4E1;" (click)="totalPayment()" type="button" class="w-50 btn  btn-lg ">
+                      Calculate Price
+                    </button>
+                    
+                  </div>
+                  <br />
+                  <hr />
+                </form>
+                
+                <form class="needs-validation" novalidate></form>
+                  <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">First name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        [placeholder]="user.firstName"
+                        value=""
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+  
+                    <div class="col-sm-6">
+                      <label for="lastName" class="form-label">Last name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        [placeholder]="user.lastName"
+                        value=""
+                        required
+                      />
+                    </div>
+  
+                    <div class="col-12">
+                      <label for="email" class="form-label"
+                        >Email <span class="text-muted"></span
+                      ></label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        [placeholder]="user.email"
+                      />
+                  
+                    </div>
+  
+                    <div class="col-md-5">
+                      <label for="country" class="form-label">Country*</label>
+                      <select class="form-select" id="country" required>
+                        <option value="">Choose...</option>
+                        <option>Turkey</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid country.
+                      </div>
+                    </div>
+  
+                    <div class="col-md-3">
+                      <label for="zip" class="form-label">Zip*</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="zip"
+                        placeholder=""
+                        required
+                      />
+                      <div class="invalid-feedback">Zip code required.</div>
+                    </div>
+                  </div>
+  
+                  <hr class="my-4" />
+  
+                  <h4 class="mb-3">Payment</h4>
+                  <button  style="margin-left: 10px;background-color:	#FFE4E1"  (click)="getCardByUser()" type="button" class="w-25 btn btn-lg ">
+                    Get Saved Cards
+                    
+                  </button>
+                  
+                  <div *ngIf="creditCards.length>0" class="mb-3" style="width: 12rem;">
+                    <br>
+                    <label for="customerCards">Your Credit Cards</label>
+                    <select class="form-control" (ngModelChange)="setCardInfos()" required
+                      id="userCard" name="userCard">
+                      <option *ngFor="let card of creditCards" [value]="card.creditCardId" class="form-control">{{card.cardNumber}}
+                      </option>
+                    </select>
+                  </div>
+  
+                  
+                <form [style.display]="hid" >
+                  
+                  <div class="my-3">
+                    <div class="form-check">
+                      <input
+                        id="credit"
+                        name="paymentMethod"
+                        type="radio"
+                        class="form-check-input"
+                        checked
+                        required
+                      />
+                      <label class="form-check-label" for="credit"
+                        >Credit card</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        id="debit"
+                        name="paymentMethod"
+                        type="radio"
+                        class="form-check-input"
+                        required
+                      />
+                      <label class="form-check-label" for="debit"
+                        >Debit card</label
+                      >
+                      
+                    </div>
+                  </div>
+                 
+          
+                  <div class="form-floating mb-3">
+                      <input
+                          class="form-control"
+                          type="text"
+                          [(ngModel)]="nameOfUser"
+                          [ngModelOptions]="{standalone: true}"
+                          
+                        />
+                    <label for="nameOnTheCard">Name on the Card</label>
+                  </div>
+          
+                  <div class="form-floating mb-3">
+                    <input type="text" id="cardNumber" class="form-control" placeholder="cardNumber" [(ngModel)]="cardNumber"
+                    [ngModelOptions]="{standalone: true}">
+                    <label for="cardNumber">Card Number</label>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-floating mb-3">
+                        <input  type="text" id="expiration" class="form-control" placeholder="expiration"
+                        [(ngModel)]="expiration"
+                        [ngModelOptions]="{standalone: true}">
+                        <label for="expirationDate">Expiration</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-floating mb-3">
+                        <input type="number" id="cvv" class="form-control" placeholder="cvv" [(ngModel)]="cvv"
+                        [ngModelOptions]="{standalone: true}">
+                        <label for="cvv">CVV</label>
+                      </div>
+                    </div>
+                    <div class="form-check">
+                      <button (click)="createCard()" style="margin-left: 10px;background-color:	#FFE4E1"  type="button" class="btn btn-lg">Save Card</button>
+                      
+                    </div>
+                    <div class="icons">
+                      <img src="https://img.icons8.com/color/48/000000/visa.png" />
+                      <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
+                      <img src="https://img.icons8.com/color/48/000000/maestro.png" />
+                    </div>
+                  </div>
+                  
+          
+                  <!-- payment -->
+          
+          
+                </form>
+                
+  
+                  <hr class="my-4" />
+                  <button (click)="totalPayment()" type="button" style="margin-left: 10px;background-color:	#FFE4E1"  class="w-100 btn btn-lg" data-bs-toggle="modal" data-bs-target="#rentModal">
+                    Checkout
+                  </button>
+                  <div *ngIf="isLogOK()" class="modal fade" id="rentModal" tabindex="-1" aria-labelledby="rentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                  
+                        <div class="modal-header">
+                          <h5 class="modal-title"  id="rentModalLabel">
+                            Rent
+                          </h5>
+                          <button type="button" class="btn-close" style="margin-left: 10px;background-color:	#FFE4E1" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                  
+                        <div class="modal-body">
+                  
+                          <label for="dailyPrice" class="col-4 col-form-label">Daily Price:</label>
+                          <div class="form-group row mb-2">
+                            <div class="col-8">
+                              <input id="dailyPrice" type="text" disabled="disabled" class="form-control"
+                                [value]="carDetail.dailyPrice " />
+                            </div>
+                          </div>
+                          <label for="totalPrice" class="col-4 col-form-label">Total Price:</label>
+                          <div class="form-group row mb-2">
+                            <div class="col-8">
+                              <input id="totalPrice" type="text" disabled="disabled" class="form-control"
+                                [value]="amount " />
+                            </div>
+                          </div>
+                          
+                        </div>
+           
+                        <div class="modal-footer">
+                       
+                          <button  data-bs-dismiss="modal" (click)="rent()" type="button" class="btn btn-outline-success float-end">
+                            Rent
+                          </button>
+                        </div>
+                  
+                        
+                      </div>
+                    </div>
+                  </div>
+                  
+                
+              </div>
+            </div>
+          </main>
+  
+          <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">@IYD</p>
+          </footer>
+        </div>
+      </body>
+    </div>
+  </div>

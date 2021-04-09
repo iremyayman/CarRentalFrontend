@@ -15,11 +15,11 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.localStorageService.getItem('admin')){
+    if(this.localStorageService.getItem("admin")){
       return true;
     }
-    this.toastrService.info('You have no permission.');
-    this.router.navigate(['home']);
+    this.toastrService.info("You have no permission.");
+    this.router.navigate(['']);
     return false;
      
   }

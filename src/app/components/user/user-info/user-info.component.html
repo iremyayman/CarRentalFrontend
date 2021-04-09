@@ -5,7 +5,11 @@
       <ul class="nav nav-tabs card-header-tabs bg">
         <li class="nav-item bg">
           <a class="nav-link active " aria-current="true" href="users/info/update/{{user.id}}">Update</a>
+        </li>&nbsp;
+        <li class="nav-item bg">
+          <a class="nav-link active " aria-current="true" href="user/rentals/{{user.id}}">Show Rentals</a>
         </li>
+        
         
        
       </ul>
@@ -22,6 +26,7 @@
             <th class="list-group-item bg-light">Email :</th><br>
             <th class="list-group-item bg-light">Findeks Score :</th><br>
         </div>
+
         
         <div *ngIf="user"  class="col-md-3">
             <tr>{{user.firstName}}</tr><br><br>

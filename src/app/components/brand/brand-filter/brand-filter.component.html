@@ -1,0 +1,38 @@
+
+
+<div class="m-3">
+  <label for="exampleFormControlInput1" class="form-label" style="color:black; font-size: large;; ">Search via Brand</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" style=" border-radius: 10px; border-color: black;max-width: 210px;" placeholder="Brand..">
+</div>
+
+<div *ngIf="filterText.length>2" class="alert-danger m-2">
+  {{filterText}} searching...
+</div>
+
+<ul *ngIf="dataloaded == true" 
+    class="list-group list-group-flush m-4" style="max-width: 160px;">
+    
+    <h4 class="ps-2"
+    style="background-color:white; color:#ed2c2c; border-radius: 88px; height: 28px; text-align: center;">
+    Brands
+</h4>
+
+  <li
+    (click)="setCurrentBrand(brand)"
+    routerLink = "/cars/brand/{{brand.brandId}}"
+    *ngFor="let brand of brands | filterBrand:filterText"
+    [class]="getBrandClass(brand)" style="background: white; color:black;"
+  >
+    {{ brand.brandName }}
+  </li>
+
+  <button
+    routerLink="/cars"
+    (click)="clearFilter()"
+    type="button"
+    aria-current="true"
+    class="btn btn-outline-danger"
+  >
+    Clear Filter
+  </button>
+</ul>

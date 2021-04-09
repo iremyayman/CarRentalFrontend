@@ -1,1 +1,24 @@
-<p>car-filter works!</p>
+<div class="col-md-4">
+    
+    <ul style="border-radius: 20px;" class="list-group">
+        <br>
+        <h3 style="border-radius: 30px;" routerLink="/cars" [class]="getCategoryClasses()">All Cars</h3>
+        <li class="list-group-item" style="font-size: larger;"><h5 style="border-radius: 20px;">Brands</h5></li>
+        <li (click)="setCurrentBrand(brand)"
+        routerLink="/cars/brand/{{brand.brandId}}" 
+        [class]="getCurrentBrandClass(brand)"
+         *ngFor="let brand of brands">{{brand.brandName}}</li>
+    </ul>
+    <br>
+    <ul style="border-radius: 20px;" class="list-group">
+        <li class="list-group-item" style="font-size: larger;"><h5 style="border-radius: 20px;">Colors</h5></li>
+        <li (click)="setCurrentColor(color)"
+        routerLink="/cars/color/{{color.colorId}}"
+         [class]="getCurrentColorClass(color)"
+          *ngFor="let color of colors">{{color.colorName}}</li>
+    </ul>
+    
+    <br>
+   
+    
+</div>

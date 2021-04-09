@@ -38,6 +38,10 @@ import { AddImagesComponent } from './components/car/car-update/car-update-optio
 import { RentalComponent } from './components/rental/rental.component';
 import { GetRentalsComponent } from './components/rental/get-rentals/get-rentals.component';
 import { GetByuserRentalsComponent } from './components/rental/get-byuser-rentals/get-byuser-rentals.component';
+import { BrandFilterComponent } from './components/brand/brand-filter/brand-filter.component';
+import { ColorFilterComponent } from './components/color/color-filter/color-filter.component';
+import { FilterBrandPipe } from './pipes/filter-brand.pipe';
+import { FilterColorPipe } from './pipes/filter-color.pipe';
 
 
 
@@ -78,7 +82,11 @@ import { GetByuserRentalsComponent } from './components/rental/get-byuser-rental
     AddImagesComponent,
     RentalComponent,
     GetRentalsComponent,
-    GetByuserRentalsComponent
+    GetByuserRentalsComponent,
+    BrandFilterComponent,
+    ColorFilterComponent,
+    FilterBrandPipe,
+    FilterColorPipe
   
     
     

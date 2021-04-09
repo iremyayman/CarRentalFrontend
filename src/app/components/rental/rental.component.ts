@@ -72,7 +72,7 @@ export class RentalComponent implements OnInit {
         this.getByEmail(this.email);
         this.getCarDetail(params["carId"]);
         this.getCarImagesById(params["carId"]);
-
+        console.log(this.user);
       }
     })
   }

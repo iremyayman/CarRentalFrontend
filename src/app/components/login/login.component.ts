@@ -37,9 +37,14 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("email",this.loginForm.value.email)
       this.authService.login(loginModel).subscribe(response=>{
         
-        this.toastrService.info(response.message)
-        this.router.navigate(['home'])
+        
         localStorage.setItem("token",response.data.token)
+        this.userService.getByEmail(loginModel.email).subscribe(response=>{
+          this.localStorageService.setItem("id",response.data.id.toString());
+        });
+        
+        this.toastrService.info("Successfull Login.Welcome");
+        this.router.navigate(["home"]);
       },responseError=>{
         
         this.toastrService.error(responseError.error)

@@ -28,6 +28,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { LoginGuard } from './guards/login.guard';
 
 
+
 const routes: Routes = [
   {path:"",pathMatch:"full",component:FirstPageComponent},
   {path:"cars",component:CarDetailComponent},
@@ -40,21 +41,21 @@ const routes: Routes = [
   {path:"cars/brand/:brandId",component:CarDetailComponent},
   {path:"cars/info/:carId",component:CarInfoComponent},
   {path:"users/info/:email",component:UserInfoComponent},
-  {path:"users/info/update/:id",component:UserUpdateComponent},
-  {path:"color/update",component:ColorListComponent,canActivate:[AdminGuard]},
-  {path:"brand/update",component:BrandListComponent,canActivate:[AdminGuard]},
+  {path:"users/info/update/:id",component:UserUpdateComponent,canActivate:[LoginGuard]},
+  {path:"color/update",component:ColorListComponent,canActivate:[AdminGuard,LoginGuard]},
+  {path:"brand/update",component:BrandListComponent,canActivate:[AdminGuard,LoginGuard]},
   {path:"color/add",component:ColorAddComponent,canActivate:[AdminGuard,LoginGuard]},
-  {path:"brand/add",component:BrandAddComponent,canActivate:[AdminGuard,LoginGuard]},
-  {path:"color/update/:colorId",component:ColorUpdateComponent,canActivate:[AdminGuard]},
-  {path:"brand/update/:brandId",component:BrandUpdateComponent,canActivate:[AdminGuard]},
+  {path:"brand/add",component:BrandAddComponent,canActivate:[LoginGuard,AdminGuard]},
+  {path:"color/update/:colorId",component:ColorUpdateComponent,canActivate:[AdminGuard,LoginGuard]},
+  {path:"brand/update/:brandId",component:BrandUpdateComponent,canActivate:[AdminGuard,LoginGuard]},
   {path:"car/add",component:CarAddComponent,canActivate:[AdminGuard,LoginGuard]},
-  {path:"car/update",component:CarUpdateComponent,canActivate:[AdminGuard]},
-  {path:"cars/update/:carId",component:UpdateCarComponent,canActivate:[AdminGuard]},
-  {path:"cars/update/options/:carId",component:CarUpdateOptionsComponent,canActivate:[AdminGuard]},
-  {path:"cars/update/previewimage/:carId",component:PreviewImageComponent,canActivate:[AdminGuard]},
-  {path:"cars/update/addimages/:carId",component:AddImagesComponent,canActivate:[AdminGuard]},
+  {path:"car/update",component:CarUpdateComponent,canActivate:[AdminGuard,LoginGuard]},
+  {path:"cars/update/:carId",component:UpdateCarComponent,canActivate:[AdminGuard,LoginGuard]},
+  {path:"cars/update/options/:carId",component:CarUpdateOptionsComponent,canActivate:[AdminGuard,LoginGuard]},
+  {path:"cars/update/previewimage/:carId",component:PreviewImageComponent,canActivate:[AdminGuard,LoginGuard]},
+  {path:"cars/update/addimages/:carId",component:AddImagesComponent,canActivate:[AdminGuard,LoginGuard]},
   {path:"rental/:carId",component:RentalComponent},
-  {path:"all/rentals",component:GetRentalsComponent,canActivate:[AdminGuard]},
+  {path:"all/rentals",component:GetRentalsComponent,canActivate:[AdminGuard,LoginGuard]},
   {path:"user/rentals/:id",component:GetByuserRentalsComponent,canActivate:[LoginGuard]}
   
   

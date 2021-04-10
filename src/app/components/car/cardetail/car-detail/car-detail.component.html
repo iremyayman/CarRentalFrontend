@@ -1,14 +1,15 @@
-<div class="container" style="min-width: 2400px;">
+<div class="container" style="min-width: 2600px;">
+  
   <div class="row">
-    <div class="col md-1">
+    <div class="col-3">
         <div>
            <app-brand-filter></app-brand-filter>
            <app-color-filter></app-color-filter>
         </div>
     </div>    
  
-    <div class="col md-11">
-      <div class="row ">
+    <div class="col-9">
+      <div class="row " style="padding-right: 100px;">
         
            <div *ngFor="let car of cars" class="card text-dark bg-light mb-3" style="width: 25rem;">
                <img src="{{imageUrl}}{{car.initialImage}}" class="card-img-top" alt="..."height="350" >
@@ -22,6 +23,7 @@
       </div>
   </div>
 </div>
+
 
 
 

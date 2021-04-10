@@ -50,6 +50,7 @@ import { FilterColorPipe } from './pipes/filter-color.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +88,7 @@ import { FilterColorPipe } from './pipes/filter-color.pipe';
     ColorFilterComponent,
     FilterBrandPipe,
     FilterColorPipe
+    
   
     
     

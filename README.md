@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
-##Used Technics
+## Used Technics
 *Aop
 *N-Tier Architecture
 *AutoFac
@@ -11,10 +11,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 *Fluent Validation
 *Secured Operation
 
-##Project Views
+## Project Views
 You can find the images from Web Site in "ImagesFromWebsite" folder.
 
-##LinkedIn
+## LinkedIn
 https://www.linkedin.com/in/irem-yayman/
 
 ## Development server
